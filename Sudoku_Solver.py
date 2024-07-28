@@ -110,9 +110,10 @@ class SudokuSolverGUI:
                 self.board[i][j] = int(value) if value.isdigit() else 0
 
     def clear_entries(self):
-        for row in self.entries:
-            for entry in row:
-                entry.delete(0, END)
+        for i in range(9):
+            for j in range(9):
+                self.entries[i][j].delete(0, END)
+                self.board[i][j] = 0  # Reset the board to 0
 
     def update_board(self, board):
         for i in range(9):
